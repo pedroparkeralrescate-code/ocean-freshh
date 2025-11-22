@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: ocean-fresh
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run preview
+    routes:
+      - path: /
+        destination: /
+      - path: /assets/*
+        destination: /assets/
+    envVars:
+      - key: NODE_ENV
+        value: production
